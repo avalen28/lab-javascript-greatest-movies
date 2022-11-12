@@ -57,23 +57,18 @@ function dramaMoviesScore(moviesArray) {
 function orderByYear(moviesArray) {
   const years = moviesArray.filter((element) => element.year);
   //console.log(yearsCopy); copia con todo (y años)
-  const patata = years.filter((element) => element.year);
   //const patata2 = patata.map((element) => element.year);
-  const prueba = JSON.parse(JSON.stringify(patata));
-  const prueba2 = [...new Set(prueba)];
-  const ascendingYear = prueba2.sort((a, b) => a - b);
-  //console.log(ascendingYear); // no se porqué no lo detecta porque lo devuelvo por orden de año.
-  // he probado tanto sin duplicados de años como un único array de años.
-  //creo que pasa como en el ejercicio anterior que habrá que filtarse el array y limpiarlo de ""?
+  const prueba = JSON.parse(JSON.stringify(years));
+  const ascendingYear = prueba.sort((a, b) => a.year - b.year);
   return ascendingYear;
 }
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
 function orderAlphabetically(moviesArray) {
   const titleFilter = moviesArray.map((element) => element.title);
-  const titleSlice = titleFilter.slice(0, 20);
-  const titleSliceOrder = titleSlice.sort();
+  const titleSlice = titleFilter.sort();
+  const titleSliceOrder = titleSlice.slice(0, 20);
   console.log(titleSliceOrder);
-  return titleSlice;
+  return titleSliceOrder;
 }
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes(moviesArray) {} //map duration split(" ")  replace (h y min)
